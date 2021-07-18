@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+h3,
+p {
+	margin: 0px;
+}
+
+body {
+	font-family: "Muli", sans-serif;
+
+	margin: 0;
+	background: #506077;
+	height: 100vh; /* Эквивалентно 100% высоты окна браузера. */
+}
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container {
+	width: 100%;
+	display: flex;
+	padding: 0 20px;
+	position: relative;
+}
+.slide {
+	position: relative;
+	height: 80vh;
+	border-radius: 20px;
+	margin: 10px;
+	cursor: pointer;
+	color: #fff;
+	flex: 1; /*  каждый слайд изменяется пропорционально */
+	background: #98d9a8;
+	padding: 2px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: all 500ms ease-in-out;
+}
+
+.slide .text {
+	position: absolute;
+	background: #a37b59;
+	border-radius: 20px;
+	bottom: 20px;
+	left: 20px;
+	margin: 0;
+	opacity: 0;
+	padding: 15px 35px;
+	width: 80%;
+}
+
+.slide .text p {
+	font-size: 24px;
+	line-height: 29/24 * 100%;
+}
+
+.slide.active {
+	flex: 10;
+	background-size: contain;
+	border: 1 solid #fff;
+}
+.slide.active .text {
+	opacity: 1;
+	transition: opacity 0.3s ease-in 0.4s;
+}
+
+.title {
+	display: inline-block;
+	min-width: 60px;
+	text-align: center;
+	margin: 35px 20px 20px 30px;
+	color: #fff;
+	font-size: 35px;
+}
+
+@media (max-width: 991.98px) {
+	.container {
+		display: inline-block;
+		overflow: scroll;
+	}
+	.slide {
+		max-height: 30px;
+	}
+	.slide.active {
+		max-height: 300px;
+		background-size: contain;
+		border: 1 solid #fff;
+	}
+	.title {
+		font-size: 1.8rem;
+		margin-bottom: 10px;
+		margin: 15px 20px 10px 30px;
+	}
+
+	.slide .text p {
+		font-size: 20px;
+		line-height: 24/20 * 100%;
+	}
+}
+@media (max-width: 767.98px) {
+	.slide .text {
+		bottom: 10px;
+		left: 10px;
+		padding: 10px 25px;
+		width: 80%;
+	}
+	.slide .text p {
+		font-size: 16px;
+		line-height: 20/16 * 100%;
+	}
+}
